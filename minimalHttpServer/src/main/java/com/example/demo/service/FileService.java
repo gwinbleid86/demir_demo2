@@ -55,7 +55,7 @@ public class FileService {
                     .findFirst()
                     .orElse(String.format("%s-%s-0001.log", type, date));
         } catch (IOException e) {
-            log.info("Directory not exist. Create directory '{}'", SEMI_PATH);
+            log.error("Directory not exist. Create directory '{}'", SEMI_PATH);
             Files.createDirectory(path);
             return getFilename(type, date);
         }
@@ -65,7 +65,7 @@ public class FileService {
         try (Stream<String> input = Files.lines(path)) {
             return input.count();
         } catch (IOException e) {
-            log.info("Method getCountStringsFromFile(): NoSuchFileException");
+            log.error("Method getCountStringsFromFile(): NoSuchFileException");
             return 0;
         }
     }

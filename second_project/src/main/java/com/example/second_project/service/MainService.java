@@ -25,7 +25,6 @@ public class MainService {
     public void run() {
         var paths = fileService.getListFiles(Paths.get("data/new/"));
         paths.forEach(e -> {
-            log.info("Path: {}", e);
             List<String> list = fileService.readFile(e);
             chopped(list, 100).forEach(i -> rabbitProducer.send(i.toString()));
             fileService.moveFile(e.getFileName().toString());

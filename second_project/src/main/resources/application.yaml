@@ -1,2 +1,9 @@
+spring:
+  rabbitmq:
+    host: toad.rmq.cloudamqp.com
+    virtual-host: hqbkcefw
+    port: 5672
+    username: hqbkcefw
+    password: 4cL9OZzM8i7mZz3_g--kT-5wfAk8XPwt
 server:
   port: 9092

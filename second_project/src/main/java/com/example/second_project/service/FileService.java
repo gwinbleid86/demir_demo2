@@ -42,7 +42,7 @@ public class FileService {
                     StandardCopyOption.REPLACE_EXISTING
             );
         } catch (IOException e) {
-            log.info("Directory not exist. Create directory '{}'", DATA_OBSERVED);
+            log.error("Directory not exist. Create directory '{}'", DATA_OBSERVED);
             Files.createDirectory(Paths.get(DATA_OBSERVED));
             moveFile(filename);
         }

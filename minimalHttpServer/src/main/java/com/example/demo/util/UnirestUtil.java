@@ -1,16 +1,21 @@
 package com.example.demo.util;
 
 import kong.unirest.Unirest;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
-public class UnirestUtil implements AutoCloseable{
+@Service
+public class UnirestUtil{
+
+    @Value("${unirest.second_app.url}")
+    private String url;
+
     public void send() {
-        Unirest.get("http://localhost:9092")
-                .header("accept", "application/json")
-                .asJson();
+        Unirest.get(url).asJson();
+        close();
     }
 
-    @Override
-    public void close() {
+    private void close() {
         Unirest.shutDown();
     }
 }

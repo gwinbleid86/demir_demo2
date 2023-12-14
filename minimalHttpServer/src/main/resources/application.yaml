@@ -1,2 +1,5 @@
+unirest:
+  second_app:
+    url: http://localhost:9092
 server:
   port: 9091

@@ -1,0 +1,3 @@
+unirest:
+  second_app:
+    url: http://second-app:9092

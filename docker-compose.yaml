@@ -1,0 +1,19 @@
+services:
+
+  first_app:
+    container_name: first-app
+    image: first_app
+    ports:
+      - "9091:9091"
+    volumes:
+      - ./data:/app/data
+      - ./config_first_app:/app/config
+
+  second_app:
+    container_name: second-app
+    image: second_app
+    ports:
+      - "9092:9092"
+    volumes:
+      - ./data:/app/data
+      - ./config_second_app:/app/config

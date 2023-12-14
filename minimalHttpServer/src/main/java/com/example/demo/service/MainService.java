@@ -16,6 +16,8 @@ public class MainService {
 
     private final JsonService jsonService;
 
+    private final UnirestUtil unirestUtil;
+
     @SneakyThrows
     public void createFile(String xml) {
         JsonNode node = jsonService.getNodeFromXml(xml);
@@ -24,8 +26,6 @@ public class MainService {
         String filename = fileService.getFilename(type, date);
         fileService.writeFile(node.toString(), filename);
 
-        try(UnirestUtil unirestUtil = new UnirestUtil()){
-            unirestUtil.send();
-        }
+        unirestUtil.send();
     }
 }
